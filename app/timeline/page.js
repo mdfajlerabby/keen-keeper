@@ -9,11 +9,12 @@ const icons = {
   call: callIcon.src,
   text: textIcon.src,
   video: videoIcon.src,
-  meetup: "🤝",
 };
 export default function TimelinePage() {
   const [entries] = useState(() => {
-    return sortTimeline([...getStoredTimeline(), ...timelineSeed]);
+    return sortTimeline([...getStoredTimeline(), ...timelineSeed]).filter(
+      (entry) => ["call", "text", "video"].includes(entry.type),
+    );
   });
   const [filter, setFilter] = useState("all");
   const visible =
@@ -43,7 +44,6 @@ export default function TimelinePage() {
           <option value="call">Call</option>
           <option value="text">Text</option>
           <option value="video">Video</option>
-          <option value="meetup">Meetup</option>
         </select>
       </div>
       <div className="w-full space-y-5">
@@ -53,15 +53,7 @@ export default function TimelinePage() {
             className="flex min-h-[86px] items-center gap-5 rounded-[10px] border border-[#e7ebee] bg-white px-5 py-4 shadow-[0_1px_4px_rgba(40,60,70,0.05)] transition hover:-translate-y-0.5 hover:shadow-md sm:px-6"
           >
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#f1f8f5] text-2xl text-[#3c9a87]">
-              {entry.type === "meetup" ? (
-                icons[entry.type]
-              ) : (
-                <img
-                  src={icons[entry.type]}
-                  alt=""
-                  className="h-8 w-8 object-contain"
-                />
-              )}
+              <img src={icons[entry.type]} alt="" className="h-8 w-8 object-contain" />
             </div>
             <div className="min-w-0">
               <p className="text-base text-[#6b7d8d]">

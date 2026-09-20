@@ -86,7 +86,7 @@ export default function Home() {
           },
           {
             label: "This month",
-            value: "12",
+            value: friends.length,
             color: "#ffffff",
           },
         ].map((item) => (

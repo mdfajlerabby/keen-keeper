@@ -14,7 +14,7 @@ profiles, interaction history, and simple friendship analytics.
 
 ## Features
 
-- **Friend dashboard:** Browse 12 realistic friend profiles with photos, tags,
+- **Friend dashboard:** Browse 10 realistic friend profiles with photos, tags,
   contact age, relationship status, and detail pages.
 - **Quick check-ins:** Log Call, Text, or Video interactions from a friend
   detail page and receive an instant toast confirmation.
